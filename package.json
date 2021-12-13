@@ -1,5 +1,5 @@
 {
-  "name": "next-netninja",
+  "name": "next-todo",
   "private": true,
   "scripts": {
     "dev": "next dev",

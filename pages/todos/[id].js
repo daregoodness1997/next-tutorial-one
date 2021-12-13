@@ -16,10 +16,23 @@ export const getStaticPaths = async () => {
   };
 };
 
-const TodoDetails = () => {
+export const getStaticProps = async context => {
+  const id = context.params.id;
+  const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
+  const datum = await res.json();
+
+  return {
+    props: {
+      datum: datum,
+    },
+  };
+};
+
+const TodoDetails = ({ datum }) => {
   return (
     <>
-      <h1>Details</h1>
+      <h1>{datum.title}</h1>
+      <p>{datum.completed.toString()}</p>
     </>
   );
 };
